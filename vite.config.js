@@ -23,8 +23,12 @@ export default defineConfig({
     }
   },
   server:{
-    proxy:{
-      '/api':'http://testapi.xuexiluxian.cn',
+     proxy:{
+      '/api':{
+        target:'http://testapi.xuexiluxian.cn',
+        changeOrigin:true,
+         rewrite: (path) => path.replace(/^\/api/, "/api")
+      }
     }
   },
 })
