@@ -1,8 +1,10 @@
 import axios from "axios"
 import {useUserStore} from "@/stores/index"
 
-
-const service=axios.create()
+const baseURL='http://testapi.xuexiluxian.cn'
+const service=axios.create({
+  baseURL,
+})
 
 // 添加请求拦截器
 service.interceptors.request.use(function (config) {
